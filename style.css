@@ -112,7 +112,7 @@ html, body {
   top: 9%;
   width: min(24vw, 275px);
   min-width: 210px;
-  height: 255px;
+  height: 300px;
   padding: 7px;
   background: linear-gradient(180deg, rgba(5,17,27,.90), rgba(8,22,34,.78));
   border: 3px solid rgba(10,31,48,.95);
@@ -123,30 +123,35 @@ html, body {
 }
 
 .chat-inner {
+  width: 100%;
   height: 100%;
   overflow: hidden;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 3px;
+
+  gap: 4px;
   padding: 4px 6px 7px;
 }
 
 .chat-line {
   width: 100%;
+
   font-size: clamp(10px, .88vw, 14px);
   line-height: 15px;
+
   text-shadow: 0 1px 2px #000;
-  overflow: hidden;
 
-  /* MAX 2 LINES */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
 
+  white-space: normal;
   word-break: break-word;
   overflow-wrap: anywhere;
+
+
+  overflow: visible;
+
+  flex: 0 0 auto;
 
   animation: chatIn .18s ease-out;
 }
