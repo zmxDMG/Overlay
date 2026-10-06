@@ -87,9 +87,11 @@ window.addEventListener("onEventReceived", function (obj) {
 /* Test messages while editing the widget */
 function testChat() {
   [
-    ["Kacper", "Siema!"],
-    ["RoyalPlayer", "To jest bardzo długa wiadomość testowa, która powinna zostać automatycznie zawinięta i zatrzymana maksymalnie na drugiej linii."],
-    ["ZMX", "RoyalBlock wygląda kozacko!"]
+    ["Bugimir", "Siema!"],
+    ["Royal", "To jest bardzo długa wiadomość testowa, która powinna zostać automatycznie zawinięta i zatrzymana maksymalnie na drugiej linii."],
+    ["ZMX", "Wygląda na to, że wszystko działa poprawnie!"],
+    ["Bugimir", "Dzięki za sprawdzenie!"],
+    ["ZMX", "Nie ma sprawy!"],
   ].forEach(([displayName, text], i) => {
     setTimeout(() => addMessage({ displayName, text }), i * 350);
   });
