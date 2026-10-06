@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#overlay {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  color: #fff;
+}
+
+/* ===== TOP BAR ===== */
+.topbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 58px;
+  display: flex;
+  align-items: stretch;
+  background:
+    linear-gradient(180deg, rgba(13,28,43,.96), rgba(7,17,29,.94));
+  border-bottom: 2px solid rgba(255,255,255,.72);
+  box-shadow: 0 3px 15px rgba(0,0,0,.45);
+  clip-path: polygon(
+    0 0, 35% 0, 37% 100%, 63% 100%, 65% 0, 100% 0,
+    100% 100%, 0 100%
+  );
+}
+
+.top-item {
+  position: relative;
+  width: 22%;
+  min-width: 190px;
+  padding: 5px 14px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  text-shadow: 0 2px 3px #000;
+}
+
+.top-item .label {
+  font-weight: 900;
+  font-size: clamp(11px, 1.15vw, 18px);
+  letter-spacing: .4px;
+  line-height: 16px;
+}
+
+.top-item span:last-child {
+  font-size: clamp(10px, .95vw, 15px);
+  color: #e9eef3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-left { margin-right: auto; }
+.top-right { margin-left: auto; }
+
+.top-item.second {
+  width: 18%;
+}
+
+.brand {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 0;
+  width: 30%;
+  height: 67px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #10263a, #0a1726);
+  border: 2px solid rgba(255,255,255,.72);
+  border-top: 0;
+  clip-path: polygon(9% 0, 91% 0, 100% 100%, 0 100%);
+  text-align: center;
+  padding-top: 5px;
+  box-shadow: 0 5px 16px rgba(0,0,0,.5);
+}
+
+.brand > div:first-child {
+  font-size: clamp(20px, 2.15vw, 34px);
+  font-weight: 1000;
+  letter-spacing: 1.5px;
+  line-height: 32px;
+  text-shadow: 0 3px 4px #000;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: clamp(9px, .75vw, 12px);
+  opacity: .95;
+}
+
+/* ===== CHAT ===== */
+#chat {
+  position: absolute;
+  left: 1.2%;
+  top: 9%;
+  width: min(24vw, 275px);
+  min-width: 210px;
+  height: 255px;
+  padding: 7px;
+  background: linear-gradient(180deg, rgba(5,17,27,.90), rgba(8,22,34,.78));
+  border: 3px solid rgba(10,31,48,.95);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.58),
+    0 6px 18px rgba(0,0,0,.45);
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%);
+}
+
+.chat-inner {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 3px;
+  padding: 4px 6px 7px;
+}
+
+.chat-line {
+  width: 100%;
+  font-size: clamp(10px, .88vw, 14px);
+  line-height: 15px;
+  text-shadow: 0 1px 2px #000;
+  overflow: hidden;
+
+  /* MAX 2 LINES */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
+  animation: chatIn .18s ease-out;
+}
+
+.chat-line .name {
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+.chat-line .message {
+  color: #f2f5f7;
+}
+
+.chat-line .badge {
+  height: 13px;
+  width: 13px;
+  object-fit: contain;
+  vertical-align: -2px;
+  margin-right: 3px;
+}
+
+@keyframes chatIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== CAMERA FRAME ===== */
+.camera-frame {
+  position: absolute;
+  right: 2.1%;
+  top: 9%;
+  width: min(23vw, 265px);
+  aspect-ratio: 16 / 9;
+  background: rgba(0,0,0,.05);
+  border: 4px solid #0b2236;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.68),
+    0 7px 18px rgba(0,0,0,.45);
+  clip-path: polygon(0 0, 100% 0, 100% 86%, 91% 100%, 0 100%);
+}
+
+.camera-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255,255,255,.35);
+}
+
+.camera-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  z-index: 2;
+  border-color: rgba(255,255,255,.8);
+}
+
+.camera-tl { left: -4px; top: -4px; border-left: 3px solid; border-top: 3px solid; }
+.camera-tr { right: -4px; top: -4px; border-right: 3px solid; border-top: 3px solid; }
+.camera-bl { left: -4px; bottom: -4px; border-left: 3px solid; border-bottom: 3px solid; }
+.camera-br { right: -4px; bottom: -4px; border-right: 3px solid; border-bottom: 3px solid; }
+
+/* Smaller screens */
+@media (max-width: 800px) {
+  .top-item { min-width: 130px; }
+  #chat { width: 31vw; }
+  .camera-frame { width: 29vw; }
+  .brand { width: 35%; }
+}
